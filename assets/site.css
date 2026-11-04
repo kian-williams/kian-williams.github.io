@@ -1,0 +1,186 @@
+/* Kian Williams — site stylesheet
+   Single-column academic site. Edit the variables below to change colours, width and fonts. */
+
+:root {
+  --bg: #fcfcfb;
+  --ink: #1b1b1d;
+  --muted: #66666c;
+  --rule: #e2e0da;
+  --accent: #2a5d4b;        /* links */
+  --accent-dark: #1b3f33;   /* link hover */
+  --max: 740px;             /* column width */
+  --gutter: clamp(20px, 8vw, 140px);
+  --font: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-meta: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+}
+a:hover { color: var(--accent-dark); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* ---------- header / nav ---------- */
+
+.nav {
+  width: min(calc(100% - var(--gutter) * 2), var(--max));
+  margin: 0 auto;
+  padding: 22px 0 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.brand {
+  color: var(--ink);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.nav-links { display: flex; gap: 26px; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.97rem; }
+.nav-links a[aria-current="page"], .nav-links a:hover { color: var(--ink); }
+
+/* ---------- page ---------- */
+
+.page {
+  width: min(calc(100% - var(--gutter) * 2), var(--max));
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+h2 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 44px 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 { font-size: 1.02rem; font-weight: 600; margin: 0 0 4px; line-height: 1.4; }
+
+p { margin: 0 0 1em; }
+
+.kicker {
+  font-family: var(--font-meta);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+/* ---------- home hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.portrait {
+  width: 200px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.lead { font-size: 1.08rem; }
+
+.contact-line { color: var(--muted); margin-top: 1.2em; }
+
+/* ---------- icon links ---------- */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 6px;
+  font-size: 0.93rem;
+}
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.links a:hover { color: var(--ink); }
+.links svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- papers ---------- */
+
+.paper { margin: 0 0 24px; }
+.paper .meta { color: var(--muted); font-size: 0.93rem; margin: 0 0 6px; }
+.paper .summary { margin: 0; }
+.paper .files { font-size: 0.9rem; margin: 6px 0 0; }
+.paper .files a + a::before { content: "·"; color: var(--muted); margin: 0 8px 0 0; }
+.paper .files a + a { margin-left: 8px; }
+
+/* ---------- CV page ---------- */
+
+.pdf-frame {
+  width: 100%;
+  height: min(1100px, 82vh);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  margin: 8px 0 16px;
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  width: min(calc(100% - var(--gutter) * 2), var(--max));
+  margin: 0 auto;
+  padding: 18px 0 40px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- phone ---------- */
+
+@media (max-width: 600px) {
+  :root { --gutter: 16px; }
+  .hero { grid-template-columns: 1fr; gap: 22px; }
+  .portrait { width: 160px; }
+  h1 { font-size: 1.7rem; }
+  .nav { flex-wrap: wrap; gap: 10px 24px; }
+}
