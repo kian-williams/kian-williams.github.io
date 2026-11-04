@@ -103,18 +103,15 @@ p { margin: 0 0 1em; }
 
 /* ---------- home hero ---------- */
 
-.hero {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 36px;
-  align-items: start;
-}
+.hero::after { content: ""; display: block; clear: both; }
 
 .portrait {
-  width: 200px;
+  float: left;
+  width: 190px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 6px;
+  margin: 6px 30px 10px 0;
 }
 
 .lead { font-size: 1.08rem; }
@@ -179,8 +176,7 @@ p { margin: 0 0 1em; }
 
 @media (max-width: 600px) {
   :root { --gutter: 16px; }
-  .hero { grid-template-columns: 1fr; gap: 22px; }
-  .portrait { width: 160px; }
+  .portrait { width: 124px; margin: 4px 18px 6px 0; }
   h1 { font-size: 1.7rem; }
   .nav { flex-wrap: wrap; gap: 10px 24px; }
 }
