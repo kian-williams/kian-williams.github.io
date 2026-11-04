@@ -58,3 +58,7 @@ The live site updates within a minute or two. Where things live:
 To check a change before pushing, open index.html in a browser. To see what you changed since the last push: `git status` and `git diff`.
 
 The original 7.8 MB photo (assets/IMG_1200_original.JPG) is listed in .gitignore and stays off GitHub.
+
+## Visit counter
+
+The pages include a GoatCounter snippet. To activate it: sign up free at https://www.goatcounter.com/signup, choose a code (e.g. `kianwilliams`, giving kianwilliams.goatcounter.com), then replace `CODE` in the script tag at the bottom of index.html, papers.html and cv.html with that code and push. Visits then show up on your GoatCounter dashboard. It sets no cookies and needs no banner.

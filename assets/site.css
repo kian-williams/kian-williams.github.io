@@ -2,12 +2,14 @@
    Single-column academic site. Edit the variables below to change colours, width and fonts. */
 
 :root {
-  --bg: #fcfcfb;
-  --ink: #1b1b1d;
-  --muted: #66666c;
-  --rule: #e2e0da;
-  --accent: #2a5d4b;        /* links */
-  --accent-dark: #1b3f33;   /* link hover */
+  /* Warm palette. The previous cool palette, for reference:
+     bg #fcfcfb, ink #1b1b1d, muted #66666c, rule #e2e0da, accent #2a5d4b, accent-dark #1b3f33 */
+  --bg: #faf6ee;
+  --ink: #2b2521;
+  --muted: #7b6f64;
+  --rule: #e6dccb;
+  --accent: #a64f2a;        /* links: terracotta */
+  --accent-dark: #7f3a1c;   /* link hover */
   --max: 740px;             /* column width */
   --gutter: clamp(20px, 8vw, 140px);
   --font: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
