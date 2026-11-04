@@ -39,6 +39,22 @@ Static academic site: three HTML pages and one stylesheet, no build step.
 
 ## Updating
 
-Edit the HTML, then `git add . && git commit -m "Update" && git push`. Changes are live within a minute or two.
+Edit a file, then from this folder run:
 
-Keep assets/IMG_1200_original.JPG out of the repo if you prefer: it is the 7.8 MB original. Add a `.gitignore` line for it.
+    git add -A
+    git commit -m "Describe the change"
+    git push
+
+The live site updates within a minute or two. Where things live:
+
+- Bio, email, links, the two research entries on the home page: index.html
+- Full papers list and summaries: papers.html (copy an existing `<article class="paper">` block to add one)
+- CV: drop a new PDF over assets/Williams_CV.pdf, keep the filename, and update the "Last updated" line in cv.html
+- Photo: replace assets/kian.jpg (4:5 portrait, about 1200 x 1500 px)
+- Colours, column width, fonts: the variables at the top of assets/site.css
+- Paper PDFs: put them in papers/ and link them from a `<p class="files">` line
+- Nav, header, footer: repeated in each of the three HTML files, so change all three
+
+To check a change before pushing, open index.html in a browser. To see what you changed since the last push: `git status` and `git diff`.
+
+The original 7.8 MB photo (assets/IMG_1200_original.JPG) is listed in .gitignore and stays off GitHub.
